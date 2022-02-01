@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class controller {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        BmiDTO bim = new BmiDTO();
+        BmiDTO bmi = new BmiDTO();
         CalcDTO calc = new CalcDTO();
         GoogleDTO google = new GoogleDTO();
         GradeDTO grade = new GradeDTO();
@@ -36,12 +36,37 @@ public class controller {
             System.out.println(menu);
             String res = "";
             switch (scanner.nextInt()) {
-                case 0 : res = "EXIT";
-                case 1 : res = "BMI";
-                case 2 : res = "CALC";
-                case 3 : res = "GOOGLE";
-                case 4 : res = "GRADE";
-                case 5 : res = "LOGIN";
+                case 0 : System.out.println("EXIT"); return;
+                case 1 :
+                    System.out.println(BmiDTO.BMI_TITLE + "\n 이름, 키, 몸무게");
+                    bmi.setName(scanner.next());
+                    bmi.setAge(scanner.nextInt());
+                    bmi.setHei(scanner.nextInt());
+                    bmi.setWei(scanner.nextInt());
+                    res = bmiService.getBmi(bmi);
+                case 2 :
+                    System.out.println(CalcDTO.CALC_TITLE + "\n 숫자 1, 연산기호, 숫자 2");
+                    calc.setNum1(scanner.nextInt());
+                    calc.setOpcode(scanner.next());
+                    calc.setNum2(scanner.nextInt());
+                    res = calcService.getCalc(calc);
+                case 3 :
+                    System.out.println(GoogleDTO.GOOGLE_TITLE + "\n 검색어를 입력하세요.");
+                    google.setSearch(scanner.next());
+                    res = googleService.getGoogle(google);
+                case 4 :
+                    System.out.println("이름, 국어, 영어, 수학");
+                    grade.setName(scanner.next());
+                    grade.setKor(scanner.nextInt());
+                    grade.setEng(scanner.nextInt());
+                    grade.setMath(scanner.nextInt());
+                    res = gradeService.getGrade(grade);
+                case 5 :
+                    System.out.println(LoginDTO.LOGIN_TITLE + "\n 이름, 아이디, 비밀번호");
+                    login.setName(scanner.next());
+                    login.setId(scanner.next());
+                    login.setPw(scanner.next());
+                    res = loginService.getLogin(login);
                 default: res = "잘못된 번호 입니다.";
             }
             System.out.println(res);

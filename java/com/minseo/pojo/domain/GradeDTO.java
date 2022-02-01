@@ -12,7 +12,7 @@ package com.minseo.pojo.domain;
  * 2022-01-31     최민서        최초 생성
  */
 public class GradeDTO {
-    public static String GRADE_TITLE = "=== 성적표 ===";
+    public static String GRADE_TITLE = "성적표";
     private String name;
     private int kor;
     private int eng;

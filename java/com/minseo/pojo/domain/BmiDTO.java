@@ -18,22 +18,35 @@ public class BmiDTO {
     private int hei;
     private int wei;
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public int getAge(){
+
+    public int getAge() {
         return age;
     }
-    public void setAge(){
+
+    public void setAge(int age) {
         this.age = age;
     }
-    public int getHei(){
+
+    public int getHei() {
         return hei;
     }
-    public void setHei(){
+
+    public void setHei(int hei) {
+        this.hei = hei;
+    }
+
+    public int getWei() {
+        return wei;
+    }
+
+    public void setWei(int wei) {
         this.wei = wei;
     }
 }
